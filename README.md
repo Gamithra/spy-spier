@@ -1,7 +1,7 @@
 # gamithra's spy spier
 
 ### what is this?
-The spy spier is a tool to assist using email tracker pixels and monitor requests sent to the server. It (currently) parses Apache logs, bulks similar entries together and outputs the location of the IP address.
+The spy spier is a tool to assist using email tracker pixels and monitor requests sent to the server. It (currently) parses Apache logs, bulks similar entries together and outputs the location of the IP address; makes new tracker files and uploads them to the server.
 
 
 ----
