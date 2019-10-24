@@ -7,6 +7,7 @@ The spy spier is a tool to assist using email tracker pixels and monitor request
 ----
 #### usage
 Generating trackers: fill out login credentials for ssh in config.py; run
+
     python3 gen.py
 
 Parsing logs: set LOG\_DIRECTORY and LOG\_FILE variables in _main.py_ to Apache log file location; run
