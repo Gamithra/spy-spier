@@ -1,2 +1,6 @@
 *~
+*.swp
+*.pyc
 /logfiles
+/trackers/*
+config-local.py
