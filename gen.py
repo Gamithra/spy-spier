@@ -3,7 +3,7 @@ import paramiko
 import random
 import string
 from scp import SCPClient
-
+import os
 from config import *
 
 
@@ -30,7 +30,10 @@ def generate():
     if name == "":
         name = ''.join(random.SystemRandom().choice(string.ascii_lowercase + string.digits) for _ in range(12))
 
-    subprocess.Popen(("cp " + tracker_file + " " + tracker_folder + name + ".png").split());
+    if not os.path.isdir('./trackers'):
+        subprocess.Popen(("mkdir " + tracker_folder).split())
+
+    subprocess.Popen(("cp " + tracker_file + " " + tracker_folder + name + ".png").split())
     print("Generated " + name + ".png in the local folder " + tracker_folder)
 
     transfer_token(name)

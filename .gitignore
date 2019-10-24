@@ -3,4 +3,4 @@
 *.pyc
 /logfiles
 /trackers/*
-config-local.py
+config_local.py
