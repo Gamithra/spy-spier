@@ -6,22 +6,11 @@ from scp import SCPClient
 import os
 
 from config import *
-
-
-def createSSHClient(server, port, user, key_filename):
-    client = paramiko.SSHClient()
-    client.load_system_host_keys()
-    key = paramiko.RSAKey.from_private_key_file(key_filename)
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(server, port, user, pkey=key)
-    return client
+from util import *
 
 
 def transfer_tracker(name):
-    ssh = createSSHClient(ssh_server, ssh_port, ssh_user, ssh_key_location)
-    scp = SCPClient(ssh.get_transport())
-    print("SSH and SCP established!")
-
+    ssh, scp = create_connection()
     scp.put(tracker_folder + name + ".png", server_web_root + server_tracker_folder)
     print(name + ".png copied to destination folder of remote server")
 
