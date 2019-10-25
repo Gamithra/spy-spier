@@ -19,5 +19,5 @@ Parsing logs: fill out login credentials for ssh in config.py; run
 ## // to-do
 * change IP location provider (current one has a request limit)
 * make a cronjob out of this and add function to send a mail notification on email pixel trigger
-* gmail seems to use some kind of a proxy server to store images now, trackers might not work for gmail; have yet to find a workaround
+* gmail seems to use some kind of a proxy server to store images now, trackers might not work for gmail; have yet to find a workaround [this](https://www.emailmarketingtipps.de/2013/12/07/gmails-image-caching-affects-email-marketing-heal-opens-tracking/) might help
 * save known IPs (oh hey, I've seen you here before)
