@@ -4,6 +4,7 @@ import random
 import string
 from scp import SCPClient
 import os
+
 from config import *
 
 
@@ -16,7 +17,7 @@ def createSSHClient(server, port, user, key_filename):
     return client
 
 
-def transfer_token(name):
+def transfer_tracker(name):
     ssh = createSSHClient(ssh_server, ssh_port, ssh_user, ssh_key_location)
     scp = SCPClient(ssh.get_transport())
     print("SSH and SCP established!")
@@ -25,8 +26,15 @@ def transfer_token(name):
     print(name + ".png copied to destination folder of remote server")
 
 
+def register_tracker(name, recipient):
+    with open(register_file, 'a') as file:
+        file.write(str(recipient) + ";" + name +'\n')
+    print("Saved tracker " + name + " for recipient " + recipient + " in " + register_file)
+
+
 def generate():
-    name = input("Specify token name (leave open to generate random string): ")
+    name = input("Specify tracker name (leave open to generate random string): ")
+    recipient = input("Recipient of the tracker (to look them up later): ")
     if name == "":
         name = ''.join(random.SystemRandom().choice(string.ascii_lowercase + string.digits) for _ in range(12))
 
@@ -36,8 +44,9 @@ def generate():
     subprocess.Popen(("cp " + tracker_file + " " + tracker_folder + name + ".png").split())
     print("Generated " + name + ".png in the local folder " + tracker_folder)
 
-    transfer_token(name)
-    print("Your token is at:")
+    transfer_tracker(name)
+    register_tracker(name, recipient)
+    print("Your tracker is at:")
     print(server_name + server_tracker_folder + name + ".png")
 
 

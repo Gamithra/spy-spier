@@ -12,3 +12,4 @@ ssh_key_location = "/secret/location/key.pem" # location of your ssh key
 
 
 tracker_file = "image.png" # the file that will be uploaded to the server
+register_file = "register.txt" # file where tracker-recipient files will be stored
